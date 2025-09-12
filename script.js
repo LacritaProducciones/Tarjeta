@@ -21,6 +21,10 @@ function typeWriter(text, element, speed) {
 
       i++;
       setTimeout(typing, speed);
+    } else {
+      // detener el sonido al terminar
+      typeSound.pause();
+      typeSound.currentTime = 0;
     }
   }
   typing();

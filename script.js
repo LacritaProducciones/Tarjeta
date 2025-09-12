@@ -14,8 +14,11 @@ function typeWriter(text, element, speed) {
   function typing() {
     if (i < text.length) {
       element.textContent += text.charAt(i);
+
+      // sonido de tecla
       typeSound.currentTime = 0;
       typeSound.play();
+
       i++;
       setTimeout(typing, speed);
     }
@@ -25,8 +28,6 @@ function typeWriter(text, element, speed) {
 
 // Botón "Abrir"
 startBtn.addEventListener("click", () => {
-  notifSound.play(); // suena notificación
-
   // Caja se desvanece
   startScreen.classList.add("fade-out");
 
@@ -34,10 +35,18 @@ startBtn.addEventListener("click", () => {
     startScreen.style.display = "none";
     card.classList.remove("hidden");
 
-    // Después de 1 seg aparece el chat
+    // Después de 1 seg aparece el chat + suena notificación
     setTimeout(() => {
       chat.classList.remove("hidden");
       chat.style.animation = "slideIn 0.8s ease forwards";
+
+      // sonido notificación
+      notifSound.currentTime = 0;
+      notifSound.play();
+
+      // vibración animada
+      chat.classList.add("vibrate");
+      setTimeout(() => chat.classList.remove("vibrate"), 400);
     }, 1000);
   }, 800);
 });

@@ -1,4 +1,4 @@
-/* Estilos generales */
+/* Fondo */
 body {
   margin: 0;
   height: 100vh;
@@ -9,6 +9,79 @@ body {
   font-family: Arial, sans-serif;
   flex-direction: column;
   overflow: hidden;
+}
+
+/* Pantalla inicial */
+.start-screen {
+  position: fixed;
+  inset: 0;
+  background: #fad0c4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+/* Caja de regalo */
+.package {
+  position: relative;
+  width: 80%;
+  max-width: 400px;
+  height: 70%;
+  background: #fe3a65;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulse 1.5s infinite;
+  overflow: hidden;
+}
+
+/* Cintas del regalo */
+.ribbon-vertical {
+  position: absolute;
+  width: 60px;
+  height: 100%;
+  background: #fff;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ribbon-horizontal {
+  position: absolute;
+  height: 60px;
+  width: 100%;
+  background: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Botón dentro de la caja */
+.package button {
+  position: relative;
+  z-index: 2;
+  background: white;
+  color: #fe3a65;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 20px 50px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  transition: transform 0.2s, background 0.3s;
+}
+
+.package button:hover {
+  transform: scale(1.05);
+  background: #ffe0e6;
+}
+
+/* Animación latido */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 /* Tarjeta */
@@ -55,13 +128,12 @@ body {
   border-radius: 50%;
 }
 
-/* Animación de caída */
 @keyframes drop {
   from { top: -150px; }
   to { top: 20px; }
 }
 
-/* Chat fuera de la tarjeta */
+/* Chat */
 .chat-box {
   position: fixed;
   bottom: 30px;
@@ -78,7 +150,6 @@ body {
   font-size: 20px;
 }
 
-/* Animación de entrada del chat */
 @keyframes slideIn {
   from { transform: translateX(-120%); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
@@ -93,26 +164,24 @@ body {
 }
 
 .message h2 {
-  font-size: 32px; /* más grande */
+  font-size: 32px;
   color: #fe3a65;
   margin-bottom: 20px;
 }
 
 .message img {
-  width: 250px; /* más grande */
+  width: 250px;
   max-width: 90%;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   margin-bottom: 20px;
 }
 
-/* Animación de aparición */
 @keyframes popIn {
   from { transform: scale(0.5); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
 
-/* Texto con animación máquina de escribir */
 .typewriter-box {
   margin-top: 10px;
   width: 100%;
@@ -130,33 +199,15 @@ body {
   padding: 5px;
 }
 
-/* Parpadeo del cursor */
-@keyframes blink {
-  from, to { border-color: transparent; }
-  50% { border-color: #fe3a65; }
-}
-
-/* Oculto */
 .hidden {
   display: none;
 }
 
-/* Responsive */
-@media (max-width: 480px) {
-  .chat-message {
-    font-size: 18px;
-    padding: 10px 14px;
-  }
+/* Desvanecer la caja al abrir */
+.fade-out {
+  animation: fadeOut 0.8s forwards;
+}
 
-  .message h2 {
-    font-size: 26px;
-  }
-
-  .message img {
-    width: 200px;
-  }
-
-  .typewriter {
-    font-size: 22px;
-  }
+@keyframes fadeOut {
+  to { opacity: 0; transform: scale(0.8); }
 }

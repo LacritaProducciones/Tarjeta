@@ -4,15 +4,11 @@ const messageBox = document.getElementById("messageBox");
 const notifSound = document.getElementById("notifSound");
 const typeSound = document.getElementById("typeSound");
 const loveText = document.getElementById("loveText");
+const startScreen = document.getElementById("startScreen");
+const startBtn = document.getElementById("startBtn");
+const card = document.getElementById("card");
 
-// Mostrar el chat después de 1 segundo con animación + sonido
-setTimeout(() => {
-  chat.classList.remove("hidden");
-  chat.style.animation = "slideIn 0.8s ease forwards";
-  notifSound.play();
-}, 1000);
-
-// Función para escribir texto lentamente con sonido
+// Máquina de escribir con sonido
 function typeWriter(text, element, speed) {
   let i = 0;
   function typing() {
@@ -27,19 +23,35 @@ function typeWriter(text, element, speed) {
   typing();
 }
 
-// Al hacer click en la cuerda
+// Botón "Abrir"
+startBtn.addEventListener("click", () => {
+  notifSound.play(); // suena notificación
+
+  // Caja se desvanece
+  startScreen.classList.add("fade-out");
+
+  setTimeout(() => {
+    startScreen.style.display = "none";
+    card.classList.remove("hidden");
+
+    // Después de 1 seg aparece el chat
+    setTimeout(() => {
+      chat.classList.remove("hidden");
+      chat.style.animation = "slideIn 0.8s ease forwards";
+    }, 1000);
+  }, 800);
+});
+
+// Al jalar la cuerda
 ribbon.addEventListener("click", () => {
-  // Ocultar cuerda y chat
   ribbon.style.display = "none";
   chat.style.display = "none";
 
-  // Mostrar mensaje final + gif con animación
   messageBox.classList.remove("hidden");
   messageBox.style.opacity = "1";
 
-  // Activar máquina de escribir debajo del gif con sonido
   setTimeout(() => {
     loveText.textContent = "";
-    typeWriter("Te amo ❤️", loveText, 400); // velocidad lenta
+    typeWriter("Te amo ❤️", loveText, 400);
   }, 1000);
 });

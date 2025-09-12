@@ -1,0 +1,162 @@
+/* Estilos generales */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  font-family: Arial, sans-serif;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Tarjeta */
+.container {
+  position: relative;
+  width: 90%;
+  max-width: 350px;
+  height: 70vh;
+  max-height: 500px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  overflow: hidden;
+  margin-top: 50px;
+}
+
+/* Cuerda */
+.ribbon {
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  width: 6px;
+  height: 100px;
+  background: #fe3a65;
+  transform: translateX(-50%);
+  animation: drop 1.5s ease forwards;
+  cursor: pointer;
+}
+
+.ribbon::after {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 22px;
+  background: #fe3a65;
+  border-radius: 50%;
+}
+
+/* Animación de caída */
+@keyframes drop {
+  from { top: -150px; }
+  to { top: 20px; }
+}
+
+/* Chat fuera de la tarjeta */
+.chat-box {
+  position: fixed;
+  bottom: 30px;
+  left: 20px;
+  max-width: 70%;
+  z-index: 10;
+}
+
+.chat-message {
+  background: #fe3a65;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 15px 15px 15px 0;
+  font-size: 20px;
+}
+
+/* Animación de entrada del chat */
+@keyframes slideIn {
+  from { transform: translateX(-120%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Mensaje final */
+.message {
+  text-align: center;
+  width: 100%;
+  animation: popIn 0.8s ease forwards;
+  opacity: 0;
+}
+
+.message h2 {
+  font-size: 32px; /* más grande */
+  color: #fe3a65;
+  margin-bottom: 20px;
+}
+
+.message img {
+  width: 250px; /* más grande */
+  max-width: 90%;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  margin-bottom: 20px;
+}
+
+/* Animación de aparición */
+@keyframes popIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Texto con animación máquina de escribir */
+.typewriter-box {
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.typewriter {
+  font-size: 26px;
+  color: #fe3a65;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #fe3a65;
+  display: inline-block;
+  padding: 5px;
+}
+
+/* Parpadeo del cursor */
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: #fe3a65; }
+}
+
+/* Oculto */
+.hidden {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .chat-message {
+    font-size: 18px;
+    padding: 10px 14px;
+  }
+
+  .message h2 {
+    font-size: 26px;
+  }
+
+  .message img {
+    width: 200px;
+  }
+
+  .typewriter {
+    font-size: 22px;
+  }
+}

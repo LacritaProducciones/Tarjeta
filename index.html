@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Te Amo</title>
+  <title>Valentine Animation</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,13 +11,22 @@
   <audio id="notifSound" src="new-notification-09-352705.mp3" preload="auto"></audio>
   <audio id="typeSound" src="teclado-357945.mp3" preload="auto"></audio>
 
-  <!-- Mensaje tipo chat fuera de la tarjeta -->
+  <!-- Pantalla de inicio (paquete) -->
+  <div id="startScreen" class="start-screen">
+    <div class="package">
+      <div class="ribbon-vertical"></div>
+      <div class="ribbon-horizontal"></div>
+      <button id="startBtn">Abrir</button>
+    </div>
+  </div>
+
+  <!-- Mensaje tipo chat -->
   <div class="chat-box hidden" id="chat">
     <p class="chat-message">💬 Jala la cuerda</p>
   </div>
 
   <!-- Tarjeta -->
-  <div class="container">
+  <div class="container hidden" id="card">
     <div class="ribbon" id="ribbon"></div>
     <div class="message hidden" id="messageBox">
       <h2>¡Feliz 12 Días Mi Niña! 💖</h2>

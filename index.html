@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Te Amo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Sonidos -->
+  <audio id="notifSound" src="new-notification-09-352705.mp3" preload="auto"></audio>
+  <audio id="typeSound" src="teclado-357945.mp3" preload="auto"></audio>
+
+  <!-- Mensaje tipo chat fuera de la tarjeta -->
+  <div class="chat-box hidden" id="chat">
+    <p class="chat-message">💬 Jala la cuerda</p>
+  </div>
+
+  <!-- Tarjeta -->
+  <div class="container">
+    <div class="ribbon" id="ribbon"></div>
+    <div class="message hidden" id="messageBox">
+      <h2>¡Feliz 12 Días Mi Niña! 💖</h2>
+      <img src="https://i.pinimg.com/originals/b0/fc/69/b0fc69471f2c62d4754fe6cc6410c7b2.gif" alt="gif romántico">
+      <div class="typewriter-box">
+        <p class="typewriter" id="loveText"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

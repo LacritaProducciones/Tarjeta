@@ -65,6 +65,6 @@ ribbon.addEventListener("click", () => {
 
   setTimeout(() => {
     loveText.textContent = "";
-    typeWriter("Te amo ❤️", loveText, 400);
+    typeWriter("Te amo mamá ❤️", loveText, 400);
   }, 1000);
 });
